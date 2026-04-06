@@ -47,11 +47,7 @@ final class CodeHighlightExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter(
-                'code_highlight',
-                [CodeHighlightRuntime::class, 'highlight'],
-                ['is_safe' => ['html']],
-            ),
+            new TwigFilter('code_highlight', [CodeHighlightRuntime::class, 'highlight'], ['is_safe' => ['html']]),
         ];
     }
 

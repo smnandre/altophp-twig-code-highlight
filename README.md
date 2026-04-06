@@ -1,6 +1,19 @@
 # Alto Twig Code Highlight
 
 Twig extension for [alto/code-highlight](https://github.com/phpalto/code-highlight) that adds a block tag and a filter for rendering syntax-highlighted code in templates.
+                  
+```twig
+{% code_highlight %}
+   #[AsTwigExtension]
+   public function getFilters(): array 
+   {
+        return array_all(   
+        
+        );
+   }
+{% endcode_highlight %}
+```
+
 
 ## Requirements
 
@@ -34,14 +47,6 @@ $twig->addRuntimeLoader(new FactoryRuntimeLoader([
 ## Tag `{% code_highlight %}`
 
 This tag highlights the enclosed code block and renders highlighted HTML output.
-
-Syntax:
-
-```twig
-{% code_highlight language_expression [with options_expression] %}
-...code body...
-{% endcode_highlight %}
-```
 
 ### Example
 
@@ -96,8 +101,9 @@ See theme docs in the core library: <https://github.com/phpalto/code-highlight>.
 
 ## Contributing
 
-Issues and pull requests are welcome.
+Contributions are welcome! Please feel free to [submit issues](https://github.com/phpalto/twig-code-highlight/issues)
+or [pull requests](https://github.com/phpalto/twig-code-highlight/pulls).
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+Released by the [Alto project](https://github.com/phpalto) under the [MIT License](LICENSE). 

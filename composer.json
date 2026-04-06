@@ -29,15 +29,6 @@
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.5"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/Users/simonandre/Sites/alto/code-highlight",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Alto\\Twig\\CodeHighlight\\": "src/"
