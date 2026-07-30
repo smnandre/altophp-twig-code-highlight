@@ -1,6 +1,6 @@
 # Alto Twig Code Highlight
 
-Twig extension for [alto/code-highlight](https://github.com/phpalto/code-highlight) that adds a block tag and a filter for rendering syntax-highlighted code in templates.
+Twig extension for [alto/code-highlight](https://github.com/altophp/code-highlight) that adds a block tag and a filter for rendering syntax-highlighted code in templates.
                   
 ```twig
 {% code_highlight %}
@@ -68,7 +68,7 @@ Theme:
 
 `theme` is not passable as a tag argument; configure the `Highlighter` theme when registering the extension.
 
-See theme docs in the core library: <https://github.com/phpalto/code-highlight>.
+See theme docs in the core library: <https://github.com/altophp/code-highlight>.
 
 ## Filter `|code_highlight`
 
@@ -97,13 +97,13 @@ Theme:
 
 `theme` is not passable as a filter argument; configure the `Highlighter` theme when registering the extension.
 
-See theme docs in the core library: <https://github.com/phpalto/code-highlight>.
+See theme docs in the core library: <https://github.com/altophp/code-highlight>.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to [submit issues](https://github.com/phpalto/twig-code-highlight/issues)
-or [pull requests](https://github.com/phpalto/twig-code-highlight/pulls).
+Contributions are welcome! Please feel free to [submit issues](https://github.com/altophp/twig-code-highlight/issues)
+or [pull requests](https://github.com/altophp/twig-code-highlight/pulls).
 
 ## License
 
-Released by the [Alto project](https://github.com/phpalto) under the [MIT License](LICENSE). 
+Released by the [Alto project](https://github.com/altophp) under the [MIT License](LICENSE). 
