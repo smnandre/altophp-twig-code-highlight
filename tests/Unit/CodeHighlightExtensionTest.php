@@ -54,7 +54,7 @@ final class CodeHighlightExtensionTest extends TestCase
     #[Test]
     public function itExposesDefaultOptions(): void
     {
-        $options = ['line_numbers' => true, 'start_line' => 3];
+        $options = ['line_numbers' => true, 'highlight_lines' => [3]];
         $extension = new CodeHighlightExtension(new Highlighter(new AltoTheme()), $options);
 
         self::assertSame($options, $extension->getDefaultOptions());

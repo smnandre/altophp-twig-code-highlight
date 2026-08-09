@@ -19,9 +19,20 @@
             "email": "smn.andre@gmail.com"
         }
     ],
+    "homepage": "https://github.com/altophp/twig-code-highlight",
+    "support": {
+        "issues": "https://github.com/altophp/twig-code-highlight/issues",
+        "docs": "https://github.com/altophp/twig-code-highlight#readme"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/smnandre"
+        }
+    ],
     "require": {
         "php": "^8.4",
-        "alto/code-highlight": "dev-main",
+        "alto/code-highlight": "^1.0",
         "twig/twig": "^3.28"
     },
     "require-dev": {
@@ -29,6 +40,8 @@
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.5"
     },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Alto\\Twig\\CodeHighlight\\": "src/"
@@ -38,6 +51,9 @@
         "psr-4": {
             "Alto\\Twig\\CodeHighlight\\Tests\\": "tests/"
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "scripts": {
         "coverage": "vendor/bin/phpunit --coverage-text",

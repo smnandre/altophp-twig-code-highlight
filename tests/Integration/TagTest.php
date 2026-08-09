@@ -72,7 +72,7 @@ TWIG);
     public function itSupportsOptionsOnTheBlockTag(): void
     {
         $template = $this->twig->createTemplate(<<<'TWIG'
-{% code_highlight 'php' with {line_numbers: true, start_line: 10} %}
+{% code_highlight 'php' with {line_numbers: true, highlight_lines: [2]} %}
 <?php
 echo "Hello";
 {% endcode_highlight %}
@@ -80,8 +80,8 @@ TWIG);
 
         $output = $template->render();
 
-        self::assertNotSame('', trim($output));
-        self::assertStringContainsString('echo', $output);
+        self::assertStringContainsString('alto-line-number', $output);
+        self::assertStringContainsString('alto-highlighted', $output);
     }
 
     #[Test]

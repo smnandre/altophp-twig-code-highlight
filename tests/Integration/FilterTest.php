@@ -65,12 +65,12 @@ final class FilterTest extends TestCase
     public function itSupportsOptionsOnTheFilter(): void
     {
         $template = $this->twig->createTemplate(
-            "{{ code|code_highlight('php', {line_numbers: true, start_line: 10}) }}",
+            "{{ code|code_highlight('php', {line_numbers: true, highlight_lines: [1]}) }}",
         );
         $output = $template->render(['code' => '<?php echo "Hello";']);
 
-        self::assertNotSame('', trim($output));
-        self::assertStringContainsString('echo', $output);
+        self::assertStringContainsString('alto-line-number', $output);
+        self::assertStringContainsString('alto-highlighted', $output);
     }
 
     #[Test]
@@ -84,5 +84,16 @@ final class FilterTest extends TestCase
 
         self::assertNotSame('', trim($output));
         self::assertStringContainsString('answer', $output);
+    }
+
+    #[Test]
+    public function itEscapesSourceHtml(): void
+    {
+        $template = $this->twig->createTemplate("{{ code|code_highlight('html') }}");
+        $output = $template->render(['code' => '<script>alert(1)</script>']);
+
+        self::assertStringStartsWith('<pre', $output);
+        self::assertStringContainsString('&lt;', $output);
+        self::assertStringNotContainsString('<script>', $output);
     }
 }
