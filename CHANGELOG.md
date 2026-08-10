@@ -1,5 +1,7 @@
-# CHANGELOG
+# Changelog
 
-## 1.0.0
+## [1.0.0] - 2026-08-09
 
-* Initial release
+- Initial release
+
+[1.0.0]: https://github.com/altophp/twig-code-highlight/releases/tag/v1.0.0

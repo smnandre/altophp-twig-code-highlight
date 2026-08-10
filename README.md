@@ -1,24 +1,12 @@
 # Alto Twig Code Highlight
 
-Twig extension for [alto/code-highlight](https://github.com/altophp/code-highlight) that adds a block tag and a filter for rendering syntax-highlighted code in templates.
-                  
-```twig
-{% code_highlight %}
-   #[AsTwigExtension]
-   public function getFilters(): array 
-   {
-        return array_all(   
-        
-        );
-   }
-{% endcode_highlight %}
-```
-
+Twig extension for [Alto Code Highlight](https://github.com/altophp/code-highlight). It provides a `{% code_highlight %}` tag and a `code_highlight` filter.
 
 ## Requirements
 
-- PHP `^8.4` (>= 8.4.0, < 9.0.0)
-- Twig `^3.23` (>= 3.23.0, < 4.0.0)
+- PHP `^8.4`
+- Alto Code Highlight `^1.0`
+- Twig `^3.28`
 
 ## Installation
 
@@ -26,7 +14,9 @@ Twig extension for [alto/code-highlight](https://github.com/altophp/code-highlig
 composer require alto/twig-code-highlight
 ```
 
-## Register extension
+## Setup
+
+Register the extension and its runtime:
 
 ```php
 use Alto\Twig\CodeHighlight\CodeHighlightExtension;
@@ -37,73 +27,64 @@ $extension = new CodeHighlightExtension();
 $twig->addExtension($extension);
 
 $twig->addRuntimeLoader(new FactoryRuntimeLoader([
-    CodeHighlightRuntime::class => fn () => new CodeHighlightRuntime(
+    CodeHighlightRuntime::class => static fn (): CodeHighlightRuntime => new CodeHighlightRuntime(
         $extension->getHighlighter(),
         $extension->getDefaultOptions(),
     ),
 ]));
 ```
 
-## Tag `{% code_highlight %}`
+Default options may be configured on the extension:
 
-This tag highlights the enclosed code block and renders highlighted HTML output.
+```php
+$extension = new CodeHighlightExtension(defaultOptions: [
+    'line_numbers' => true,
+]);
+```
 
-### Example
+## Tag
 
 ```twig
-{% code_highlight 'php' %}
+{% code_highlight 'php' with {line_numbers: true, highlight_lines: [2]} %}
 <?php
-echo "Hello world";
+
+echo 'Hello world';
 {% endcode_highlight %}
 ```
 
-### Options (arguments)
-
-| Option            | Type       | Default | Behavior                                                  |
-|-------------------|------------|---------|-----------------------------------------------------------|
-| `line_numbers`    | bool       | `false` | Enables line numbers in output                            |
-| `highlight_lines` | array<int> | `[]`    | Only positive integers are used; other values are ignored |
-
-Theme:
-
-`theme` is not passable as a tag argument; configure the `Highlighter` theme when registering the extension.
-
-See theme docs in the core library: <https://github.com/altophp/code-highlight>.
-
-## Filter `|code_highlight`
-
-This filter highlights a code string and returns highlighted HTML output.
-
-Syntax:
+The language may be a Twig expression:
 
 ```twig
-{{ code|code_highlight(language, options) }}
+{% code_highlight language %}
+const answer = 42;
+{% endcode_highlight %}
 ```
 
-### Example
+## Filter
 
 ```twig
-{{ snippet|code_highlight('javascript') }}
+{{ source|code_highlight('javascript') }}
 ```
 
-### Options (arguments)
+Options are passed as the second argument:
 
-| Option            | Type       | Default | Behavior                                                  |
-|-------------------|------------|---------|-----------------------------------------------------------|
-| `line_numbers`    | bool       | `false` | Enables line numbers in output                            |
-| `highlight_lines` | array<int> | `[]`    | Only positive integers are used; other values are ignored |
+```twig
+{{ source|code_highlight('php', {line_numbers: true, highlight_lines: [1, 3]}) }}
+```
 
-Theme:
+## Options
 
-`theme` is not passable as a filter argument; configure the `Highlighter` theme when registering the extension.
+| Option | Type | Default |
+| --- | --- | --- |
+| `line_numbers` | `bool` | `false` |
+| `highlight_lines` | `array<int>` | `[]` |
 
-See theme docs in the core library: <https://github.com/altophp/code-highlight>.
+A language is required for both the tag and filter. Configure themes through the core `Highlighter`; see the [theme guide](https://github.com/altophp/code-highlight/blob/main/docs/themes.md).
 
 ## Contributing
 
-Contributions are welcome! Please feel free to [submit issues](https://github.com/altophp/twig-code-highlight/issues)
-or [pull requests](https://github.com/altophp/twig-code-highlight/pulls).
+Issues and pull requests are welcome on [GitHub](https://github.com/altophp/twig-code-highlight).
 
 ## License
 
-Released by the [Alto project](https://github.com/altophp) under the [MIT License](LICENSE). 
+Released under the [MIT License](LICENSE).
