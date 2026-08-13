@@ -1,6 +1,6 @@
 {
     "name": "alto/twig-code-highlight",
-    "description": "Twig extension for Alto Code Highlight with code_highlight tag and filter",
+    "description": "Highlight source code in Twig templates with a tag or filter.",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -19,10 +19,11 @@
             "email": "smn.andre@gmail.com"
         }
     ],
-    "homepage": "https://github.com/altophp/twig-code-highlight",
+    "homepage": "https://altophp.com/twig-code-highlight",
     "support": {
         "issues": "https://github.com/altophp/twig-code-highlight/issues",
-        "docs": "https://github.com/altophp/twig-code-highlight#readme"
+        "source": "https://github.com/altophp/twig-code-highlight",
+        "docs": "https://altophp.com/twig-code-highlight"
     },
     "funding": [
         {
@@ -40,8 +41,6 @@
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.5"
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Alto\\Twig\\CodeHighlight\\": "src/"
@@ -57,13 +56,14 @@
     },
     "scripts": {
         "coverage": "vendor/bin/phpunit --coverage-text",
-        "cs": "vendor/bin/php-cs-fixer fix --diff",
+        "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff --sequential",
+        "cs:fix": "vendor/bin/php-cs-fixer fix --sequential",
         "qa": [
             "@cs",
             "@sa",
             "@test"
         ],
         "sa": "vendor/bin/phpstan analyse --memory-limit=-1",
-        "test": "vendor/bin/phpunit"
+        "test": "phpunit"
     }
 }

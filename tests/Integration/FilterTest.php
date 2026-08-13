@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of the ALTO library.
  *
- * © 2026–present Simon André
+ * © 2026-present Simon André
  *
  * For full copyright and license information, please see
  * the LICENSE file distributed with this source code.
@@ -44,7 +44,7 @@ final class FilterTest extends TestCase
 
         $this->twig->addExtension($extension);
         $this->twig->addRuntimeLoader(new FactoryRuntimeLoader([
-            CodeHighlightRuntime::class => static fn (): CodeHighlightRuntime => new CodeHighlightRuntime(
+            CodeHighlightRuntime::class => static fn(): CodeHighlightRuntime => new CodeHighlightRuntime(
                 $highlighter,
                 $extension->getDefaultOptions(),
             ),
