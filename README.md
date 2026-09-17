@@ -95,7 +95,12 @@ Options are passed as the second argument:
 | `line_numbers` | `bool` | `false` |
 | `highlight_lines` | `array<int>` | `[]` |
 
-A language is required for both the tag and filter. Configure themes through the core `Highlighter`; see the [theme guide](https://github.com/altophp/code-highlight/blob/main/docs/themes.md).
+A language is required for both the tag and filter. Configure themes through the core `Highlighter`; see the [theme guide](https://altophp.com/code-highlight/theming/).
+
+## Documentation
+
+Read [Getting started](docs/getting-started.md), [Usage](docs/usage.md), and
+[Configuration](docs/configuration.md) for complete setup and rendered output.
 
 ## Contributing
 
