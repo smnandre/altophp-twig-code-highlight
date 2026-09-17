@@ -24,8 +24,9 @@ const answer = 42;
 
 With `language` set to `'javascript'`, this highlights the declaration and marks
 the first line number. Leading and trailing whitespace is trimmed by the runtime,
-so the initial newline does not create an extra numbered line. Content inside the
-block is literal source; use the filter when supplying dynamic source as a variable.
+so the initial newline does not create an extra numbered line. The block captures rendered Twig content, so Twig expressions inside it are
+evaluated first. Use `{% verbatim %}` around literal Twig source, or pass source
+through the filter to avoid evaluating it as part of the template.
 
 ## Options
 
